@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <style>
+        * {
+            font-family: 'Arial', sans-serif;
+        }
+
+
+        .outer-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .result-box {
+            border: 2px solid rgb(20, 21, 24);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px;
+            background-color: #ecf0f1;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+            .result-box p {
+                font-size: 18px;
+                color: #333;
+                margin: 0;
+                line-height: 1.5;
+            }
+        .action-container {
+            text-align: center;
+            width: 200px;
+            margin: 7px;
+        }
+
+        .styled-button {
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            background-color: rgb(40, 41, 44);
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+            .styled-button:hover {
+                background-color: rgb(20, 21, 24);
+            }
+    </style>
+</head>
+<body>
+
+    
+
+    
+    <div class="outer-container">
+        <div class="result-box">
+            <h1 class="heading">Source Text:</h1>
+            <p>@ViewBag.Content</p>
+        </div>
+    </div>
+
+    <div class="outer-container">
+        <div class="result-box">
+            <h1 class="heading">Decrypted Text:</h1>
+            <p>@ViewBag.DecryptedContent</p>
+        </div>
+    </div>
+
+
+
+    <div class="action-box">
+      
+
+
+        <div class="action-container">
+
+            <a asp-action="DownloadFile"
+               asp-controller="Home"
+               asp-route-FilePath="@ViewBag.NewFilePath"
+               asp-route-FileName="@ViewBag.FileName"
+               class="styled-button">
+                DownloadFile
+            </a>
+
+        </div>
+
+
+        @RenderBody()
+        
+    </div>
+
+   
+</body>
+</html>

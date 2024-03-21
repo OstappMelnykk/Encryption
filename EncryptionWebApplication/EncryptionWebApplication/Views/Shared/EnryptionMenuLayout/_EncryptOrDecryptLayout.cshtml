@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <style>
+        * {
+            font-family: 'Arial', sans-serif;
+        }
+
+        .centered-label,
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+        }
+
+        .input-field {
+            width: 45px;
+            font-size: 18px;
+            margin-left: 6px;
+        }
+
+        .form-container {
+            display: flex;
+        }
+
+        .outer-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .action-container {
+            text-align: center;
+            width: 200px;
+            margin: 7px;
+        }
+
+        .styled-button {
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            background-color: rgb(40, 41, 44);
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .styled-button:hover {
+            background-color: rgb(20, 21, 24);
+        }
+
+        .regular-button,
+        .link {
+            width: 100px;
+            border: 0px;
+            font-size: 18px;
+            margin-left: 6px;
+        }
+
+        .link {
+            width: 60px;
+        }
+
+        .result-box {
+            border: 2px solid rgb(20, 21, 24);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px;
+            background-color: #ecf0f1;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .result-box p {
+            font-size: 18px;
+            color: #333;
+            margin: 0;
+            line-height: 1.5;
+        }
+    </style>
+
+</head>
+<body>
+
+    @RenderBody()
+    <div>
+        
+        <div class="outer-container">
+            <div class="result-box">
+                <h1 class="heading">Source Text:</h1>
+                <p>@ViewBag.Content</p>
+            </div>
+
+            <div class="action-box">
+                <div class="action-container">
+
+                    <a asp-action="SettingPreEncrypt"
+                       asp-controller="@ViewBag.EncriptionType"
+                       asp-route-FilePath="@ViewBag.FilePath"
+                       class="styled-button">Encrypt
+                    </a>
+
+                </div>
+
+                <div class="action-container">
+
+                    <a asp-action="SettingPreDecrypt"
+                       asp-controller="@ViewBag.EncriptionType"
+                       asp-route-FilePath="@ViewBag.FilePath"
+                       class="styled-button">Decrypt
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</body>
+</html>

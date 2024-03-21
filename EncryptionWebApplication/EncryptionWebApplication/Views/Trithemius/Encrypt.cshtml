@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "/Views/Shared/ResultPageLayout/_EncryptionResultLayout.cshtml";
+}
+
+
+<div class="action-container">
+
+    <a asp-action="AtackLinear"
+       asp-controller="@ViewBag.EncriptionType"
+       asp-route-FilePath="@ViewBag.FilePath"
+       asp-route-NewFilePath="@ViewBag.NewFilePath"
+       class="styled-button">
+        Atack Linear
+    </a>
+
+</div>
+
+<div class="action-container">
+
+    <a asp-action="AtackNonLinear"
+       asp-controller="@ViewBag.EncriptionType"
+       asp-route-FilePath="@ViewBag.FilePath"
+       asp-route-NewFilePath="@ViewBag.NewFilePath"
+       class="styled-button">
+        Atack NonLinear
+    </a>
+
+</div>
+
+<div class="action-container">
+
+    <a asp-action="AtackWatchword"
+       asp-controller="@ViewBag.EncriptionType"
+       asp-route-FilePath="@ViewBag.FilePath"
+       asp-route-NewFilePath="@ViewBag.NewFilePath"
+       class="styled-button">
+        Atack Watchword
+    </a>
+
+</div>
