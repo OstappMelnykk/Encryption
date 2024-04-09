@@ -1,0 +1,19 @@
+﻿
+
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "/Views/Shared/ResultPageLayout/_DecryptionResultLayout.cshtml";
+}
+
+
+<div class="action-container">
+
+    <a asp-action="Atack"
+       asp-controller="@ViewBag.EncriptionType"
+       asp-route-FilePath="@ViewBag.FilePath"
+       asp-route-NewFilePath="@ViewBag.NewFilePath"
+       class="styled-button">
+        Atack
+    </a>
+
+</div>

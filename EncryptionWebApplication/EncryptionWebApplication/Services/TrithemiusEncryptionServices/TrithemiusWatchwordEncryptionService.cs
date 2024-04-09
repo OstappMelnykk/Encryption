@@ -5,7 +5,7 @@ namespace EncryptionWebApplication.Services.TrithemiusEncryptionServices
     public class TrithemiusWatchwordEncryptionService: BaseTrithemiusEncryptionService
     {
         private string? Watchword;
-
+        public static string watchwordLAST;
         public TrithemiusWatchwordEncryptionService() { }
         public TrithemiusWatchwordEncryptionService(string watchword){
             Watchword = watchword;
@@ -132,28 +132,40 @@ namespace EncryptionWebApplication.Services.TrithemiusEncryptionServices
                     length++;
             }
 
-            Watchword = current;
+            Watchword = SearchUniqueChars(repeatingWatchwords);
 
-            if (answer && encryptedText == EncryptWithoutCreatingFrequencyTable(sourceText))
+
+            answer = true;
+
+			if (answer && encryptedText == EncryptWithoutCreatingFrequencyTable(sourceText))
             {
-                /*MessageBox.Show(
-                    $"Watchword: {current}",
-                    "Attack successful",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Information);*/
-                return current;
+                watchwordLAST = Watchword;
+
+
+				return current;
             }
             else
             {
-                /*MessageBox.Show("Failed to find key",
-                    "Error",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);*/
                 return null;
             }
         }
 
-        private static string ClearText(string givenText)
+        private static string SearchUniqueChars(string str)
+        {
+            List<char> UniqueChars = new List<char>();
+            foreach (char c in str)
+            {
+                if (!UniqueChars.Contains(c))
+                {
+                    UniqueChars.Add(c);
+                }
+            }
+            return new string (UniqueChars.ToArray());
+
+        }
+
+
+		private static string ClearText(string givenText)
         {
             return new string(
                 givenText

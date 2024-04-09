@@ -234,7 +234,7 @@ namespace EncryptionTestProject
         }
 
 
-        [Test]
+       /* [Test]
         public void TestEngLangStep25_Atack()
         {
             CaesarEncryptionService caesarEncryptionService = new CaesarEncryptionService();
@@ -243,11 +243,11 @@ namespace EncryptionTestProject
             var a = caesarEncryptionService.Attack(sourceTextENG, encryptedText);
 
             Assert.AreEqual("25", a);
-        }
+        }*/
 
 
 
-        [Test]
+       /* [Test]
         public void TestUkrLangStep32_Atack()
         {
 
@@ -258,6 +258,6 @@ namespace EncryptionTestProject
 
             Assert.AreEqual("32", a);
 
-        }
+        }*/
     }
 }

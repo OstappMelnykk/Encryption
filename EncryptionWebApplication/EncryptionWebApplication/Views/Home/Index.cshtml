@@ -4,13 +4,18 @@
 }
 
 <a asp-action="DevInfo" class="navigation-link">DevInfo</a>
+<a asp-action="CreateFile" class="navigation-link">CreateFile</a>
+@* <a asp-action="CreateFile" class="navigation-link">CreateFile</a> *@
+@* <form asp-action="CreateFile" asp-method="get">
+    <button type="submit" class="navigation-link">CreateFile</button>
+</form> *@
 
 
 <h1>Before Encrypting, you should upload a file!</h1>
 
 <form asp-action="UploadFile" asp-controller="Home" method="post" enctype="multipart/form-data" class="upload-form" id="uploadForm">
     <label for="fileInput">Select a file:</label>
-    <input type="file" id="fileInput" name="file" class="file-input">
+    <input type="file" id="fileInput" name="file" class="file-input" value="sdsd">
     <br>
     <button type="submit" class="upload-button" id="uploadButton">Upload</button>
 </form>

@@ -161,6 +161,15 @@ namespace EncryptionWebApplication.Controllers
 
             string? resul = _encryptor.Attack(sourceText, encryptedText);
 
+            if (_encryptor is TrithemiusWatchwordEncryptionService _enc) {
+
+                resul = TrithemiusWatchwordEncryptionService.watchwordLAST;
+
+
+			}
+
+
+
             if (resul == null) return Content("null");
             else return Content(resul);
         }

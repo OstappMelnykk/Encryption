@@ -61,32 +61,36 @@ namespace EncryptionWebApplication.Services.TrithemiusEncryptionServices
 
         protected char DecodeChar(char Y_symbol, int p)
         {
+            
+
+
             if (Alphabets.ukrainian.Contains(Y_symbol)){
                 var y = Alphabets.ukrainian.IndexOf(Y_symbol);
                 int x = (y - K(p)) % Alphabets.ukrainianLen;
                 if (x < 0) x += Alphabets.ukrainianLen;
                 return Alphabets.ukrainian[x];
             }
-
-            if (Alphabets.ukrainianCapital.Contains(Y_symbol)){
+            else if (Alphabets.ukrainianCapital.Contains(Y_symbol)){
                 var y = Alphabets.ukrainianCapital.IndexOf(Y_symbol);
                 int x = (y - K(p)) % Alphabets.ukrainianLen;
                 if (x < 0) x += Alphabets.ukrainianLen;
                 return Alphabets.ukrainianCapital[x];
             }
-
-            if (Y_symbol > 64 && Y_symbol < 91){
+            else if (Y_symbol > 64 && Y_symbol < 91){
                 int y = Y_symbol - 'A';
                 int x = (y - K(p)) % Alphabets.englishLen;
                 if (x < 0) x += Alphabets.englishLen;
                 return (char)(x + 'A');
             }
-
-            if (Y_symbol > 96 && Y_symbol < 123){
+            else if (Y_symbol > 96 && Y_symbol < 123){
                 int y = Y_symbol - 'a';
                 int x = (y - K(p)) % Alphabets.englishLen;
                 if (x < 0) x += Alphabets.englishLen;
                 return (char)(x + 'a');
+            }
+            else if(!(Y_symbol > 1 && Y_symbol < 127))
+            {
+                throw new Exception("EEEEEEEEEEEEErrrorr!!!");
             }
 
             return Y_symbol;

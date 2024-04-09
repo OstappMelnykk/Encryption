@@ -85,27 +85,14 @@ namespace EncryptionWebApplication.Services.TrithemiusEncryptionServices
 
                     if (encryptedText == EncryptWithoutCreatingFrequencyTable(sourceText))
                        {
-                        /*MessageBox.Show($"Parameter A= {CoefficientA};\nParameter B = {CoefficientB};\nParameter C = {CoefficientC}",
-                            "Deciphered",
-                            MessageBoxButton.OK,
-                            MessageBoxImage.Information);*/
+
                     }
-                    else
-                        {
-                        /*MessageBox.Show("Failed to find key",
-                            "Error",
-                            MessageBoxButton.OK,
-                            MessageBoxImage.Error);
-                    */}
+                    else {
+                            }
 
                     return $"{A},{B},{C}";
                 }
             }
-
-            /*MessageBox.Show("Not enough encrypted characters to decrypt",
-                "Indecipherable",
-                MessageBoxButton.OK,
-                MessageBoxImage.Error);*/
             return null;
         }
 

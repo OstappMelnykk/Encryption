@@ -22,13 +22,15 @@ namespace EncryptionWebApplication.Services
         public string? Attack(string sourceText, string encryptedText)
         {
             int step = 0;
+            string text = "";
 
             while (step < 10000)
             {
                 if (new string(encryptedText.Select(v => DecodeChar(v, step)).ToArray()) == sourceText)
-                    return step.ToString();
-               
+                    return text; //return step.ToString();
+
                 step++;
+                text += new string(encryptedText.Select(v => DecodeChar(v, step)).ToArray()) + "\n\n";
             }
             if (step == 1000)
                 return "The brute force attack failed";

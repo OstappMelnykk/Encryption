@@ -2,6 +2,10 @@ using EncryptionWebApplication.Models;
 using EncryptionWebApplication.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using RawPrint;
+using System.Drawing.Printing;
+using System.Drawing;
+
 
 namespace EncryptionWebApplication.Controllers
 {
@@ -55,6 +59,53 @@ namespace EncryptionWebApplication.Controllers
         public IActionResult DownloadFile(string FilePath, string FileName)
         {
             return PhysicalFile(FilePath, "application/octet-stream", FileName);
+        }
+
+        public IActionResult PrintFile(string FilePath)
+        {
+            string filePath = FilePath;
+            return StatusCode(200);
+        }
+
+
+        [HttpGet]
+        public IActionResult CreateFile()
+        {
+            return View("CreateFile");
+        }
+
+
+        [HttpPost]
+        public IActionResult CreateFile(string text)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(text))
+                {
+                    var uploadsFolder = Path.Combine("..", Directory.GetCurrentDirectory(), "Files");
+
+                    if (!Directory.Exists(uploadsFolder))
+                    {
+                        Directory.CreateDirectory(uploadsFolder);
+                    }
+
+                    var fileName = $"text_file_{DateTime.Now:yyyyMMddHHmmssfff}.txt"; // Генеруємо унікальне ім'я файлу
+                    var file_path = Path.Combine(uploadsFolder, fileName);
+
+                    // Записуємо текст у файл
+                    System.IO.File.WriteAllText(file_path, text);
+
+                    return RedirectToAction("Index", "Home", new { FilePath = file_path });
+                }
+                else
+                {
+                    return NotFound("Error. Empty text provided.");
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"An error occurred: {ex.Message}");
+            }
         }
 
         public IActionResult Encryption(string FilePath)
