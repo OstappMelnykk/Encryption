@@ -1,0 +1,84 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+
+    var encryptionList = new List<string>()
+    {
+        "Caesar Encryption",
+        "Trithemius Encryption",
+        "Gamma Encryption",
+        "Knapsack Encryption"
+
+
+    };
+}
+
+
+@if (encryptionList.Count != 0)
+{
+    <div class="link-box">
+        @for (int i = 0; i < @encryptionList.Count; i++)
+        {
+            <p>
+                <a 
+                   asp-action="Index" 
+                   asp-controller="@encryptionList[i].Split(" ")[0]" 
+                   class="encryption-link@(encryptionList[i].Split(" ")[0] != "-" ? " primary" : "")">
+                    @encryptionList[i]
+                </a>
+            </p>
+
+        }
+    </div>
+}
+
+
+<style>
+    a{
+        font-size: 35px;
+        font-weight: 100;
+    }
+
+    * {
+        font-family: 'Arial', sans-serif;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .link-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .encryption-link {
+        color: #fff;
+        background-color: #28292c;
+        margin: 23px;
+        text-decoration: none;
+        width: 300px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 3px 7px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    .encryption-link.primary {
+        width: auto;
+        height: auto;
+        background-color: #28292c;
+        padding: 10px 20px;
+        text-decoration: none;
+    }
+
+    .encryption-link:hover {
+        background-color: #141518;
+    }
+</style>

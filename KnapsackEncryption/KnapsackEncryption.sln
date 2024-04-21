@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KnapsackEncryption", "KnapsackEncryption\KnapsackEncryption.csproj", "{55951A7A-9CD2-4059-84C0-FF001550A426}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generate_W_Q_R", "Generate_W_Q_R\Generate_W_Q_R.csproj", "{36040BBC-BAA8-427D-97E3-58C60F892816}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{55951A7A-9CD2-4059-84C0-FF001550A426}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55951A7A-9CD2-4059-84C0-FF001550A426}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55951A7A-9CD2-4059-84C0-FF001550A426}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55951A7A-9CD2-4059-84C0-FF001550A426}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36040BBC-BAA8-427D-97E3-58C60F892816}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36040BBC-BAA8-427D-97E3-58C60F892816}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36040BBC-BAA8-427D-97E3-58C60F892816}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36040BBC-BAA8-427D-97E3-58C60F892816}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {691D1A94-DCCC-45C7-8E41-7969FBE7ED68}
+	EndGlobalSection
+EndGlobal
